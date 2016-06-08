@@ -12,21 +12,147 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 // bower:scss
 // endbower
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+/* fonts*/
+
+@font-face {
+  font-family: 'Avenir Cn';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Cn'),
+  url('../assets/fonts/avenirnextltpro/AvenirNextLTPro-Cn.woff') format('woff');
 }
 
-.thumbnail {
-  height: 200px;
+@font-face {
+  font-family: 'Avenir UltLt';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT UltLt'),
+  url('../assets/fonts/avenirnextltpro/AvenirNextLTPro-UltLtCn.woff') format('woff');
+}
 
-  img.pull-right {
-    width: 50px;
+@font-face {
+  font-family: 'Avenir Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Regular'),
+  url('../assets/fonts/avenirnextltpro/AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Bold'),
+  url('../assets/fonts/avenirnextltpro/AvenirNextLTPro-Bold.woff') format('woff');
+}
+
+
+nav{
+  width: 100%;
+  height: 100vh;
+  background: #6b5c9e;
+  background: -moz-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #6b5c9e), color-stop(100%, #2E274D));
+  background: -webkit-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: -o-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: -ms-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: linear-gradient(to bottom, #6b5c9e 0%, #2E274D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b5c9e', endColorstr='#2E274D', GradientType=0 );
+  color: #fff;
+  font-family: 'Avenir Regular';
+
+  header{
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    img{
+      width: 36px;
+    }
+    h1{
+      font-family: 'Avenir Cn';
+      font-weight: 100;
+      letter-spacing: 1px;
+      padding-left: 5px;
+    }
   }
 }
 
+.static-content{
+  width: 20%;
+  min-width: 200px;
+}
+.change-content {
+    width: 80%;
+  * {
+    margin: 0;
+  }
+  html, body {
+    height: 100%;
+  }
+  .page-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -40px;
+  }
+  .page-wrap:after {
+    content: "";
+    display: block;
+  }
+  .site-footer, .page-wrap:after {
+    height: 40px;
+  }
+  .site-footer {
+    border-top: 1px solid #aaa;
+    background: #eee;
+    p{
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      padding-right: 10px;
+      font-size: 10px;
+      color: #999;
+    }
+  }
+  header{
+    height: 80px;
+    .col-md-3{
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      padding-right: 10px;
+      .input-group{
+        height: 40px;
+        overflow: auto;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 1px solid #eee;
+        input{
+          font-size: 10px;
+          width: 200px;
+        }
+        i{
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+  section{
+    height: calc(100vh - (80px + 40px));
+  }
+}
+
+.display-inline{
+  display: inline-flex;
+  align-items: center;
+}
+.no-border{
+  border: 0 !important;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
