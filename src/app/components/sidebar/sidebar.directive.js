@@ -8,7 +8,6 @@ angular.module('finalPractice')
   function sideBar() {
     return {
       restrict: 'E',
-      templateUrl: 'app/components/sidebar/sidebar.html',
-      controller : 'SidebarController'
+      templateUrl: 'app/components/sidebar/sidebar.html'
     };
   }

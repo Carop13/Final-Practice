@@ -12,15 +12,34 @@
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
-        /*resolve: {
-          translatePartialLoader: ['$translate', function ($translate, $rootScope) {
-            $rootScope.translate = 'en';
-            return $translate.refresh();
-          }]
-        }*/
+        controllerAs: 'main',
+        resolve: {/* @ngInject */
+          categories: function(categoriesFactory){
+            return categoriesFactory.getCategory();
+          }
+        }
       });
-
+    /*$stateProvider
+    .state('main', {
+      url: '/category',
+      abstract: true,
+      resolve: {
+        categories: function(categoriesFactory){
+          return categoriesFactory.getCategory();
+        }
+      }
+    })
+    .state('main.category', {
+      url: '',
+      templateUrl: 'app/main/main.html',
+      controller: 'MainController',
+      controllerAs: 'main',
+      resolve: {
+        categories2: function(categories){
+          return categories;
+         }
+       }
+    });*/
     $urlRouterProvider.otherwise('/');
   }
 

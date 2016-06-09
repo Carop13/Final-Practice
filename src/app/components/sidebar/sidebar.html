@@ -4,12 +4,11 @@
     <h1 translate="en.videoTest">VideoTest</h1>
   </header>
   <ul>
-    <li>
-      <a>
+    <li ng-repeat="category in main.categories track by $index" ng-if="$index < 8">
+      <a class="links">
         <div>
           <div>
-            <h2 translate="en.category">Category</h2>
-            <p>{{a}}</p>
+            <h4>{{category.name}}</h4>
           </div>
         </div>
       </a>
