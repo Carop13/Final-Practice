@@ -14,6 +14,23 @@
     </header>
     <section>
       <pre>{{main.categories}}</pre>
+
+
+      <div class="row">
+        <div class="col-sm-4 col-md-3" ng-repeat="category in main.categories track by $index" >
+          <div class="thumbnail">
+            <video width="280" height="240" controls>
+              <source src="category.link" type="video/mp4">
+              <source src="category.link" type="video/ogg">
+              Your browser does not support the video tag.
+            </video>
+            <div class="caption">
+              <h5>Video {{$index}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
   </div>
 

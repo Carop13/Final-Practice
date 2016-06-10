@@ -140,7 +140,7 @@ nav{
         border: 1px solid #eee;
         input{
           font-size: 10px;
-          width: 200px;
+          width: 300px;
         }
         i{
           padding-right: 10px;
@@ -157,6 +157,7 @@ nav{
   display: inline-flex;
   align-items: center;
   background-color: #fff;
+  width: 100%;
 }
 .no-border{
   border: 0 !important;

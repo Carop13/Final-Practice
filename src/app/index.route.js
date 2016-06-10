@@ -8,39 +8,30 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main',
-        resolve: {/* @ngInject */
-          categories: function(categoriesFactory){
-            return categoriesFactory.getCategory();
-          }
-        }
-      });
-    /*$stateProvider
-    .state('main', {
-      url: '/category',
+    .state('home', {
+      url: '',
       abstract: true,
       resolve: {
-        categories: function(categoriesFactory){
+        /** @ngInject */
+        categories: function (categoriesFactory) {
           return categoriesFactory.getCategory();
+        },
+        videosByCategory: function (categoriesFactory){
+          return categoriesFactory.getVideosByCategory
         }
       }
-    })
-    .state('main.category', {
-      url: '',
-      templateUrl: 'app/main/main.html',
-      controller: 'MainController',
-      controllerAs: 'main',
-      resolve: {
-        categories2: function(categories){
-          return categories;
-         }
-       }
-    });*/
-    $urlRouterProvider.otherwise('/');
+     })
+    .state('home.category', {
+      url: '/category',
+      views: {
+        'content@': {
+          templateUrl: 'app/main/main.html',
+          controller: 'MainController',
+          controllerAs: 'main'
+        }
+      }
+     });
+    $urlRouterProvider.otherwise('/category');
   }
 
 })();

@@ -10,7 +10,7 @@
   function categoriesFactory($http, vimeoConfig) {
 
     function getCategory(){
-      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES_URL).then(function(response){
+      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES).then(function(response){
         return response.data;
       }, function(error){
         return error;
@@ -18,8 +18,19 @@
       });
     }
 
+    function getVideosByCategory(){
+      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES +"/animation").then(function(response){
+        return response.data;
+      }, function(error){
+        return error;
+        //console.log(error);
+      });
+    }
+
+
     return {
-      'getCategory': getCategory
+      'getCategory': getCategory,
+      'getVideosByCategory': getVideosByCategory
     };
   }
 })();
