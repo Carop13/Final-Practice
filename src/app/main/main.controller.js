@@ -6,11 +6,11 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(categories, videosByCategory) {
+  function MainController(categories) {
     var vm = this;
-    vm.categories = categories.data;
-    vm.videosByCategory = videosByCategory;
+    vm.categories = categories;
+    //vm.videosByCategory = videosByCategory;
     console.log(vm.categories);
-    console.log(vm.videosByCategory);
+    //console.log(vm.videosByCategory);
   }
 })();

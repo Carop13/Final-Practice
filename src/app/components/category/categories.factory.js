@@ -18,19 +18,21 @@
       });
     }
 
-    function getVideosByCategory(){
-      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES +"/animation").then(function(response){
-        return response.data;
-      }, function(error){
-        return error;
-        //console.log(error);
-      });
+    function resolveCategoriesId(categories){
+      if(categories){
+        return categories.map(function(category){
+          category.id =  category.uri.split('/').pop();
+          return category;
+        });
+      }else {
+        return categories;
+      }
     }
 
 
     return {
       'getCategory': getCategory,
-      'getVideosByCategory': getVideosByCategory
+      'resolveCategoriesId': resolveCategoriesId
     };
   }
 })();

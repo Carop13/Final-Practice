@@ -14,24 +14,32 @@
       resolve: {
         /** @ngInject */
         categories: function (categoriesFactory) {
-          return categoriesFactory.getCategory();
-        },
-        videosByCategory: function (categoriesFactory){
-          return categoriesFactory.getVideosByCategory
+          return categoriesFactory.getCategory().then(function (categoriesResponse) {
+            var categories;
+            if(categoriesResponse.data && categoriesResponse.data.length > 0){
+              categories = categoriesFactory.resolveCategoriesId(categoriesResponse.data);
+            }else{
+              categories = [];
+            }
+            return categories;
+          });
         }
       }
      })
     .state('home.category', {
-      url: '/category',
+      url: '/category/:id',
       views: {
         'content@': {
           templateUrl: 'app/main/main.html',
           controller: 'MainController',
           controllerAs: 'main'
         }
+      },
+      params: {
+        id: ''
       }
      });
-    $urlRouterProvider.otherwise('/category');
+    $urlRouterProvider.otherwise('/category/:id');
   }
 
 })();
