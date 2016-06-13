@@ -17,7 +17,7 @@
           return categoriesFactory.getCategory().then(function (categoriesResponse) {
             var categories;
             if(categoriesResponse.data && categoriesResponse.data.length > 0){
-              categories = categoriesFactory.resolveCategoriesId(categoriesResponse.data);
+              categories = categoriesResponse.data;
             }else{
               categories = [];
             }
@@ -28,6 +28,20 @@
      })
     .state('home.category', {
       url: '/category/:id',
+      resolve: {
+        /** @ngInject */
+        videos: function ($stateParams, categoriesFactory) {
+          return categoriesFactory.getVideosById($stateParams.id).then(function (result) {
+            var videos;
+            if(result.data.data){
+              videos = result.data;
+            }else{
+              videos = [];
+            }
+            return videos;
+          });
+        }
+      },
       views: {
         'content@': {
           templateUrl: 'app/main/main.html',

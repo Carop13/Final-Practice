@@ -194,6 +194,28 @@ li:before {
   padding-right: 10px;
   border-left: thick solid #eee;
 }
+.video-img{
+  width: 230px;
+  padding: 0.5em;
+}
+.display-wrap{
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+figcaption{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  z-index: 3;
+  color: #fff;
+  background-color: #6b5c9e;
+  border-color: #6b5c9e;
+  cursor: default;
+}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

@@ -9,28 +9,26 @@
         <div class="input-group display-inline">
           <input type="text" class="form-control no-border" placeholder="Search video">
           <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-    </header>
-    <section>
-      <pre>{{main.categories}}</pre>
-
-
-      <div class="row">
-        <div class="col-sm-4 col-md-3" ng-repeat="category in main.categories track by $index" >
-          <div class="thumbnail">
-            <video width="280" height="240" controls>
-              <source src="category.link" type="video/mp4">
-              <source src="category.link" type="video/ogg">
-              Your browser does not support the video tag.
-            </video>
-            <div class="caption">
-              <h5>Video {{$index}}</h5>
-            </div>
-          </div>
         </div>
       </div>
+    </header>
 
+    <section class="container-fluid">
+      <div class="display-wrap">
+        <div ng-repeat="video in main.videos track by $index" >
+          <div class="video-img">
+            <figure ng-if="video.pictures && video.pictures.sizes && video.pictures.sizes.length >= 3">
+              <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img" data-actual-width = "{{video.pictures.sizes[2].width}}"  data-actual-height="{{video.pictures.sizes[2].height}}" />
+              <figcaption>{{video.name}}</figcaption>
+            </figure>
+            <figure ng-if="!video.pictures || !video.pictures.sizes || video.pictures.sizes.length < 3">
+              <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
+              <figcaption>{{video.name}}</figcaption>
+            </figure>
+          </div>
+        </div>
+        <uib-pagination total-items="total" ng-model="currentPage" max-size="3" boundary-links="true" force-ellipses="false" items-per-page="12"></uib-pagination>
+      </div>
     </section>
   </div>
 

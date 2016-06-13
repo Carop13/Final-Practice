@@ -29,10 +29,22 @@
       }
     }
 
+    function getVideosById(id){
+      var config = {
+        page: 1,
+        perPage: 10,
+        direction: 'asc'
+      };
+      var params = '?page=' + 1;
+      params += '&per_page=' + 12;
+      //console.log(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES + '/' + id + '/videos' + params);
+      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES + '/' + id + '/videos' + params);
+    }
 
     return {
       'getCategory': getCategory,
-      'resolveCategoriesId': resolveCategoriesId
+      'resolveCategoriesId': resolveCategoriesId,
+      'getVideosById': getVideosById
     };
   }
 })();
