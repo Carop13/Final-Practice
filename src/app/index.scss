@@ -149,13 +149,23 @@ nav{
     }
   }
   section{
-    height: calc(100vh - (80px + 40px));
+      height: calc(100vh - (80px + 40px));
   }
   div.row.col-md-12{
     padding: 1em;
     text-align: center;
   }
 }
+
+/*.from-detail{
+  section{
+    $height-val: calc(100% - (80px + 40px));
+    height: calc(100% - (80px + 40px)) !important;
+  }
+  nav{
+    height: $height-val;
+  }
+}*/
 
 .display-inline{
   display: inline-flex;
@@ -222,29 +232,40 @@ figcaption{
 }
 .detail-view{
   max-width: calc(100vw - 300px);
+  /*padding-left: 0 !important;*/
   .video-container{
-    //width: calc(100vw - 300px);
     .video-reproduce{
       padding-bottom: 3em;
       width: 100%;
-      iframe {
-        /*position: absolute;
-        top: 0;
-        left: 0;*/
-       /* width: 100%;
-        height: 100%;*/
-      }
     }
 
   }
 }
-.pagination > li > a:hover{
+.pagination > li > a:hover, .pagination > li > span:hover{
   background-color: #6b5c9e;
   border-color: #6b5c9e;
+  color: #fff;
 }
-@media (min-width: 721px) {
+.pagination > li > a, .pagination > li > span{
+  color: #6b5c9e;
+}
+
+.detail-view .video-container .video-reproduce iframe {
+  width: 100%;
+  height: 700px;
+}
+.video-name{
+  font-family: 'Avenir Bold';
+  font-weight: 800;
+  color: #6b5c9e;
+
+}
+
+@media (max-width: 1290px) {
   .detail-view .video-container .video-reproduce iframe {
-    width: 100%;
+    width: calc(100vw - 345px);
+    height: 400px;
+    padding-left: 0 !important;
   }
 }
 @media (max-width: 720px){
@@ -255,13 +276,15 @@ figcaption{
     width: 100% !important;
     section{
       width: 100%;
-      height: calc(100% - (80px + 40px));
+      height: calc(100% + 40px);
     }
   }
   .detail-view{
     width: 100%;
-   .video-container .video-reproduce iframe {
-
+    .video-container .video-reproduce iframe {
+      width: calc(100vw - 45px);
+      height: calc(100vw / 2);
+      padding-left: 0 !important;
     }
   }
 }

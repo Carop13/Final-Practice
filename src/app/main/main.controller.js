@@ -12,6 +12,10 @@
     vm.total = videos.total;
     vm.videos = videos.data;
     vm.currentPage = 1;
+    vm.maxSize = 3;
+    vm.itemsPerPage = 12;
+    vm.numPages = parseInt(vm.total/vm.itemsPerPage);
+    console.log(vm.numPages);
 
     vm.videoDetail = videoDetail;
     vm.changePage = changePage;

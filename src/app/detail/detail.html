@@ -1,8 +1,9 @@
-<div class="static-content pull-left">
+<div class="static-content pull-left from-detail">
   <side-bar></side-bar>
 </div>
 
-<div class="change-content pull-left">
+<div class="change-content pull-left from-detail">
+
   <div class="page-wrap">
     <header class="row">
       <div class="col-sm-12 col-md-3 pull-right">
@@ -22,8 +23,9 @@
 
         </div>
         <div class="col-md-12">
-          <h1>{{vm.video.name}}</h1>
-          <p>{{vm.video.description}}</p>
+          <h1 class="video-name">{{vm.video.name}}</h1>
+          <span>of <strong> {{ vm.by}} </strong> | since {{vm.since}} </span>
+          <p>{{vm.description}}</p>
         </div>
       </div>
     </section>
