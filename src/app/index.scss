@@ -151,6 +151,10 @@ nav{
   section{
     height: calc(100vh - (80px + 40px));
   }
+  div.row.col-md-12{
+    padding: 1em;
+    text-align: center;
+  }
 }
 
 .display-inline{
@@ -167,7 +171,7 @@ nav{
   color: #fff;
   opacity: 0.9;
 }
-.links:hover{
+.links:hover, .links:focus{
   font-weight: 100;
   color: #fff;
   opacity: 1;
@@ -215,6 +219,22 @@ figcaption{
   background-color: #6b5c9e;
   border-color: #6b5c9e;
   cursor: default;
+}
+.detail-view{
+  max-width: 100vw;
+  .video-container{
+    width: 100%;
+    .video-reproduce{
+      padding-bottom: 3em;
+    }
+    /*iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }*/
+  }
 }
 
 /**

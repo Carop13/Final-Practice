@@ -14,11 +14,10 @@
         return response.data;
       }, function(error){
         return error;
-        //console.log(error);
       });
     }
 
-    function resolveCategoriesId(categories){
+    function resolveSlash(categories){
       if(categories){
         return categories.map(function(category){
           category.id =  category.uri.split('/').pop();
@@ -30,21 +29,40 @@
     }
 
     function getVideosById(id){
-      var config = {
-        page: 1,
-        perPage: 10,
-        direction: 'asc'
-      };
       var params = '?page=' + 1;
       params += '&per_page=' + 12;
-      //console.log(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES + '/' + id + '/videos' + params);
-      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES + '/' + id + '/videos' + params);
+      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES + '/' + id + '/videos' + params).then(function (response) {
+        return response;
+      }, function(error){
+        return error;
+      });
     }
+
+    function changePage(page, id) {
+      var params = '?page=' + page;
+      params += '&per_page=' + 12;
+      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES + '/' + id + '/videos' + params).then(function (response) {
+          return response;
+        }, function(error){
+          return error;
+        });
+    }
+
+    function getVideo(videoUri){
+      return $http.get(vimeoConfig.API_HOST + videoUri).then(function(response){
+        return response;
+      }, function(error){
+        return error;
+      });
+    }
+
 
     return {
       'getCategory': getCategory,
-      'resolveCategoriesId': resolveCategoriesId,
-      'getVideosById': getVideosById
+      'resolveSlash': resolveSlash,
+      'getVideosById': getVideosById,
+      'changePage': changePage,
+      'getVideo': getVideo
     };
   }
 })();

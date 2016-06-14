@@ -16,7 +16,7 @@
     <section class="container-fluid">
       <div class="display-wrap">
         <div ng-repeat="video in main.videos track by $index" >
-          <div class="video-img">
+          <div class="video-img" ng-click="main.videoDetail(video.uri)">
             <figure ng-if="video.pictures && video.pictures.sizes && video.pictures.sizes.length >= 3">
               <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img" data-actual-width = "{{video.pictures.sizes[2].width}}"  data-actual-height="{{video.pictures.sizes[2].height}}" />
               <figcaption>{{video.name}}</figcaption>
@@ -27,7 +27,9 @@
             </figure>
           </div>
         </div>
-        <uib-pagination total-items="total" ng-model="currentPage" max-size="3" boundary-links="true" force-ellipses="false" items-per-page="12"></uib-pagination>
+        <div class="row col-md-12">
+          <uib-pagination total-items="main.total" ng-model="main.currentPage" max-size="3" boundary-links="true" force-ellipses="false" items-per-page="12" ng-change="main.changePage()"></uib-pagination>
+        </div>
       </div>
     </section>
   </div>

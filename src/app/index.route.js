@@ -14,10 +14,10 @@
       resolve: {
         /** @ngInject */
         categories: function (categoriesFactory) {
-          return categoriesFactory.getCategory().then(function (categoriesResponse) {
+          return categoriesFactory.getCategory().then(function (result) {
             var categories;
-            if(categoriesResponse.data && categoriesResponse.data.length > 0){
-              categories = categoriesResponse.data;
+            if(result.data && result.data.length > 0){
+              categories = categoriesFactory.resolveSlash(result.data);
             }else{
               categories = [];
             }
@@ -50,10 +50,37 @@
         }
       },
       params: {
-        id: ''
+        id: 'animation'
       }
-     });
-    $urlRouterProvider.otherwise('/category/:id');
+     })
+      .state('home.detail', {
+        url: '/detail/{uri}',
+        resolve: {
+          /** @ngInject */
+          video: function ($stateParams, categoriesFactory) {
+            return categoriesFactory.getVideo($stateParams.uri).then(function (result) {
+              var video;
+              if(result.data){
+                video = result.data;
+              }else{
+                video = [];
+              }
+              return video;
+            });
+          }
+        },
+        views: {
+          'content@': {
+            templateUrl: 'app/detail/detail.html',
+            controller: 'DetailController',
+            controllerAs: 'detail'
+          }
+        },
+        params: {
+          uri: undefined
+        }
+      });
+    $urlRouterProvider.otherwise('/category/');
   }
 
 })();

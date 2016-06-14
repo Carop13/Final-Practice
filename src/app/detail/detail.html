@@ -1,0 +1,35 @@
+<div class="static-content pull-left">
+  <side-bar></side-bar>
+</div>
+
+<div class="change-content pull-left">
+  <div class="page-wrap">
+    <header class="row">
+      <div class="col-md-3 pull-right">
+        <div class="input-group display-inline">
+          <input type="text" class="form-control no-border" placeholder="Search video">
+          <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div class="container-fluid row">
+        <div class="col-md-12 detail-view">
+            <div class="video-container">
+              <div class="video-reproduce" ng-bind-html="detail.reproduce">
+              </div>
+            </div>
+
+        </div>
+        <div class="col-md-12">
+          <h1>{{detail.video.name}}</h1>
+          <p>{{detail.video.description}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <p class="pull-right">Powered by Talos Digital</p>
+  </footer>
+</div>
