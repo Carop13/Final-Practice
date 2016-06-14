@@ -4,7 +4,7 @@
     <h1 translate="en.videoTest">VimeoTest</h1>
   </header>
   <ul>
-    <li ng-repeat="category in main.categories track by $index" ng-if="$index < 8">
+    <li ng-repeat="category in vm.categories track by $index" ng-if="$index < 8">
       <a class="links" ui-sref="home.category({id: category.id})">
         <div>
           <div>

@@ -46,7 +46,7 @@
         'content@': {
           templateUrl: 'app/main/main.html',
           controller: 'MainController',
-          controllerAs: 'main'
+          controllerAs: 'vm'
         }
       },
       params: {
@@ -67,13 +67,16 @@
               }
               return video;
             });
+          },
+          categories: function (categories) {
+            return categories;
           }
         },
         views: {
           'content@': {
             templateUrl: 'app/detail/detail.html',
             controller: 'DetailController',
-            controllerAs: 'detail'
+            controllerAs: 'vm'
           }
         },
         params: {

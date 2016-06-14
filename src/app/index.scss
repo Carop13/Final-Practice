@@ -221,19 +221,48 @@ figcaption{
   cursor: default;
 }
 .detail-view{
-  max-width: 100vw;
+  max-width: calc(100vw - 300px);
   .video-container{
-    width: 100%;
+    //width: calc(100vw - 300px);
     .video-reproduce{
       padding-bottom: 3em;
-    }
-    /*iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
-    }*/
+      iframe {
+        /*position: absolute;
+        top: 0;
+        left: 0;*/
+       /* width: 100%;
+        height: 100%;*/
+      }
+    }
+
+  }
+}
+.pagination > li > a:hover{
+  background-color: #6b5c9e;
+  border-color: #6b5c9e;
+}
+@media (min-width: 721px) {
+  .detail-view .video-container .video-reproduce iframe {
+    width: 100%;
+  }
+}
+@media (max-width: 720px){
+  nav{
+    display: none;
+  }
+  .change-content{
+    width: 100% !important;
+    section{
+      width: 100%;
+      height: calc(100% - (80px + 40px));
+    }
+  }
+  .detail-view{
+    width: 100%;
+   .video-container .video-reproduce iframe {
+
+    }
   }
 }
 
