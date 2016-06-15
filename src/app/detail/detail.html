@@ -14,17 +14,36 @@
       </div>
     </header>
     <section>
-      <div class="container-fluid row">
-        <div class="col-md-12 detail-view">
+      <div class="container-fluid row no-padding-no-margin">
+        <div class="col-md-12 detail-view no-padding-no-margin">
             <div class="video-container">
               <div class="video-reproduce" ng-bind-html="vm.reproduce">
               </div>
             </div>
 
         </div>
-        <div class="col-md-12">
-          <h1 class="video-name">{{vm.video.name}}</h1>
-          <span>of <strong> {{ vm.by}} </strong> | since {{vm.since}} </span>
+        <div class="col-md-12 metadata">
+          <span>
+            <i class="fa fa-play" aria-hidden="true"></i>
+            {{vm.video.stats.plays | thousandSuffix}}
+          </span>
+          <span>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            {{vm.video.metadata.connections.likes.total | thousandSuffix}}
+          </span>
+          <span>
+            <i class="fa fa-comment" aria-hidden="true"></i>
+            {{vm.video.metadata.connections.comments.total | thousandSuffix}}
+          </span>
+        </div>
+        <div class="col-md-12 marginal">
+          <img ng-src="{{vm.picture}}">
+          <div>
+            <h1 class="video-name">{{vm.video.name}}</h1>
+            <span>of <strong> {{vm.by}} </strong> | since {{vm.since}} </span>
+          </div>
+        </div>
+        <div class="col-md-12 description">
           <p>{{vm.description}}</p>
         </div>
       </div>

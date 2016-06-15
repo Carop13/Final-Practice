@@ -15,7 +15,7 @@
 
     <section class="container-fluid">
       <div class="display-wrap">
-        <div ng-repeat="video in vm.videos track by $index" >
+        <div class="videos-display" ng-repeat="video in vm.videos track by $index" >
           <div class="video-img" ng-click="vm.videoDetail(video.uri)">
             <figure ng-if="video.pictures && video.pictures.sizes && video.pictures.sizes.length >= 3">
               <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img" data-actual-width = "{{video.pictures.sizes[2].width}}"  data-actual-height="{{video.pictures.sizes[2].height}}" />
