@@ -347,7 +347,19 @@ figcaption{
 }
 @media (max-width: 720px){
   nav{
-    display: none;
+    //display: none;
+    position: absolute;
+    top: 80px;
+    width: 300px;
+    height: calc(100vh - 80px);
+    background: #6b5c9e;
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #6b5c9e), color-stop(100%, #2E274D));
+    background: -webkit-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+    background: linear-gradient(to bottom, #6b5c9e 0%, #2E274D 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b5c9e', endColorstr='#2E274D', GradientType=0 );
+    color: #fff;
+    font-family: 'Avenir Regular';
+    z-index: 3;
   }
   .change-content{
     width: 100% !important;
@@ -408,6 +420,19 @@ figcaption{
     width: 200px;
   }
 
+  .open{
+    width: 300px;
+    height: 100vh;
+    animation: opened 0.1s ease-in-out;
+  }
+
+  .close{
+    width: 0;
+    height: 100vh;
+    animation: all 1s ease-out;
+  }
+
+
 }
 .two{
   height: 100%;
@@ -416,22 +441,24 @@ figcaption{
 }
 
 @keyframes closeC {
-  from { top: 80px; left: 300px; width: 0}
+  from { top: 80px; left: 300px; width: 300px}
   to { top: 0; left: 0; width: 0}
 }
 
 @keyframes opened {
   from { top: 80px; left: 0; width: 0}
-  to { top: 80px; left: 0; width: 300px}
+  to { top: 80px; width: 300px}
 }
 
 .open{
+  //display: inherit;
   width: 300px;
   height: 100vh;
   animation: opened 0.1s ease-in-out;
 }
 
 .close{
+  display: none;
   width: 0;
   height: 100vh;
   -webkit-transition: all 1s ease-in-out;
@@ -444,6 +471,20 @@ figcaption{
   width: 0;
   height: 100vh;
   animation: all 1s ease-out;
+}
+@media (min-width: 720px){
+  width: 100%;
+  height: 100vh;
+  background: #6b5c9e;
+  background: -moz-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #6b5c9e), color-stop(100%, #2E274D));
+  background: -webkit-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: -o-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: -ms-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
+  background: linear-gradient(to bottom, #6b5c9e 0%, #2E274D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b5c9e', endColorstr='#2E274D', GradientType=0 );
+  color: #fff;
+  font-family: 'Avenir Regular';
 }
 
 /**

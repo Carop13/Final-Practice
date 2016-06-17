@@ -9,7 +9,7 @@
   function DetailController(video, $sce, categories) {
     var vm = this;
     vm.video = video;
-    console.log(vm.video);
+   // console.log(vm.video);
     vm.categories = categories;
     vm.picture =  video.pictures.sizes[0].link;
     vm.reproduce = $sce.trustAsHtml(video.embed.html);
