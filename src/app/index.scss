@@ -256,6 +256,7 @@ li:before {
   flex-wrap: wrap;
 }
 figcaption{
+  padding-left: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -427,9 +428,10 @@ figcaption{
   }
 
   .close{
+    display: none;
     width: 0;
     height: 100vh;
-    animation: all 1s ease-out;
+    animation: closeC 0.1s ease-out;
   }
 
 
@@ -450,6 +452,11 @@ figcaption{
   to { top: 80px; width: 300px}
 }
 
+@keyframes openBig {
+  from { top: 0; left: 0; width: 300px}
+  to { top: 0; width: 0}
+}
+
 .open{
   //display: inherit;
   width: 300px;
@@ -457,39 +464,69 @@ figcaption{
   animation: opened 0.1s ease-in-out;
 }
 
-.close{
-  display: none;
-  width: 0;
-  height: 100vh;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-}
-
-.close2{
-  width: 0;
-  height: 100vh;
-  animation: all 1s ease-out;
-}
 @media (min-width: 720px){
-  width: 100%;
-  height: 100vh;
-  background: #6b5c9e;
-  background: -moz-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #6b5c9e), color-stop(100%, #2E274D));
-  background: -webkit-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
-  background: -o-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
-  background: -ms-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
-  background: linear-gradient(to bottom, #6b5c9e 0%, #2E274D 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b5c9e', endColorstr='#2E274D', GradientType=0 );
-  color: #fff;
-  font-family: 'Avenir Regular';
+  nav{
+    opacity: 1 !important;
+    color: #fff !important;
+    position: relative;
+    width: 300px;
+    height: 100vh;
+    animation: openBig 0.1s ease-in-out;
+    //animation-direction: reverse;
+  }
 }
 
-/**
- *  Do not remove the comments below. It's the markers used by gulp-inject to inject
- *  all your sass files automatically
- */
-// injector
-// endinjector
+.dynamic-grid {
+  position: relative;
+  display: none;
+}
+.dynamic-grid.angular-grid {
+  display: block;
+  li:before{
+    border-left: none;
+  }
+}
+.grid {
+  position: absolute;
+  list-style: none;
+  background: #ffffff;;
+  box-sizing: border-box;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.grid.ng-leave {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
+}
+.grid.ng-leave.ng-leave-active {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0;
+}
+.grid.ng-enter {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0;
+}
+.grid.ng-enter.ng-enter-active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.grid-img {
+  width: 100%;
+  vertical-align: middle;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+}
+.grid-img.img-loaded {
+  visibility: visible;
+  opacity: 1;
+}

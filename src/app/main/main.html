@@ -34,6 +34,23 @@
             </figure>
           </div>
         </div>
+
+        <!--<div class="videos-display">-->
+        <!--<div class="row col-md-12">
+          <ul class="dynamic-grid" angular-grid="pics" grid-width="200" gutter-size="10" angular-grid-id="gallery" refresh-on-img-load="false" >
+            <li data-ng-repeat="video in vm.videos" class="grid" ng-click="vm.videoDetail(video.uri)">
+              &lt;!&ndash;<figure ng-if="video.pictures && video.pictures.sizes && video.pictures.sizes.length >= 3">&ndash;&gt;
+                <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img" data-actual-width = "{{video.pictures.sizes[2].width}}"  data-actual-height="{{video.pictures.sizes[2].height}}" />
+                <figcaption>{{video.name}}</figcaption>
+              &lt;!&ndash;</figure>
+              <figure ng-if="!video.pictures || !video.pictures.sizes || video.pictures.sizes.length < 3">&ndash;&gt;
+               &lt;!&ndash; <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
+                <figcaption>{{video.name}}</figcaption>&ndash;&gt;
+             &lt;!&ndash; </figure>&ndash;&gt;
+            </li>
+          </ul>
+        </div>-->
+
         <div class="row col-md-12">
           <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false" items-per-page="vm.itemsPerPage"  ng-change="vm.changePage()"></uib-pagination>
         </div>

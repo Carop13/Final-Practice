@@ -10,14 +10,18 @@ angular.module('finalPractice')
       restrict: 'E',
       templateUrl: 'app/components/sidebar/sidebar.html',
       link: function($scope, element){
-        $scope.openClose = openClose;
 
         var openMenu = $document[0].querySelector('#menu');
         var aside = element[0].querySelector('.aside');
 
 
         angular.element(openMenu).on('click', function(){
-          console.log('hola');
+          var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+          console.log(width);
+          if(width >= 720 && angular.element(aside).hasClass('close')){
+            angular.element(aside).removeClass('close');
+            angular.element(aside).addClass('open');
+          }
           if(angular.element(aside).hasClass('open')){
             angular.element(aside).removeClass('open');
             angular.element(aside).addClass('close');
@@ -27,13 +31,6 @@ angular.module('finalPractice')
           }
         });
 
-        function openClose() {
-          if(vm.open){
-            vm.open = false;
-          }else{
-            vm.open = true;
-          }
-        }
       }
     };
   }

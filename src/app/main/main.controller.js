@@ -32,6 +32,11 @@
     vm.open = true;
 
     vm.width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+
+    $scope.$watch('window.innerWidth', function(val){
+      console.log(val);
+    });
    /* if(vm.width <= 720){
       vm.open = false;
       vm.lowScreen = true;
