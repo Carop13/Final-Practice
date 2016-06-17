@@ -15,6 +15,7 @@
     vm.maxSize = 3;
     vm.itemsPerPage = 12;
 
+    console.log(videos);
     vm.videoDetail = videoDetail;
     vm.changePage = changePage;
 
@@ -25,29 +26,12 @@
 
 
     function changePage(){
-      categoriesFactory.changePage(vm.currentPage, $stateParams.id).then(function(result) {
-        vm.videos = [];
-        if(result.data.data){
-          vm.videos = result.data.data;
-        }
-        return videos;
-      }, function(error) {
-        console.log(error);
-      });
+      $state.go('home.category', {id: $stateParams.id, page: vm.currentPage});
     }
 
-    //vm.openClose = openClose;
     vm.lowScreen = true;
     vm.open = true;
-    /*function openClose(){
-      if(vm.open){
-        vm.open = false;
-      }else{
-        vm.open = true;
-      }
-      console.log(vm.open);
-    }
-*/
+
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     if(width <= 720){
       vm.open = false;
@@ -55,13 +39,12 @@
       console.log(vm.lowScreen);
     }else{
       vm.open = true;
-      vm.lowScreen = false;
+     vm.lowScreen = false;
       console.log(vm.lowScreen);
     }
 
     vm.openClose = openClose;
-    function openClose(x) {
-      //x.classList.toggle("change");
+    function openClose() {
       if(vm.open){
         vm.open = false;
       }else{

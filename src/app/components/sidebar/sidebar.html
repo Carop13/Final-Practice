@@ -1,11 +1,11 @@
-<nav ng-class="vm.open ? 'open' : 'close'">
+<nav ng-class="vm.open ? 'open' : 'close2'">
   <header>
     <img src="assets/images/favicon-sample.svg">
     <h1 translate="en.videoTest">VimeoTest</h1>
   </header>
   <ul>
     <li ng-repeat="category in vm.categories track by $index" ng-if="$index < 8">
-      <a class="links" ui-sref="home.category({id: category.id})">
+      <a class="links" ui-sref="home.category({id: category.id, page: vm.currentPage})">
         <div>
           <div>
             <h4>{{category.name}}</h4>

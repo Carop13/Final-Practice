@@ -415,9 +415,9 @@ figcaption{
   align-items: center;
 }
 
-@keyframes closed {
-  from { top: 80px; left: 0; width: 300px}
-  to { top: 80px; left: 0; width: 0}
+@keyframes closeC {
+  from { top: 80px; left: 300px; width: 0}
+  to { top: 0; left: 0; width: 0}
 }
 
 @keyframes opened {
@@ -426,15 +426,25 @@ figcaption{
 }
 
 .open{
+  width: 300px;
   height: 100vh;
   animation: opened 1s ease-in-out;
 }
 
 .close{
+  width: 0;
   height: 100vh;
-  animation: closed 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
+.close2{
+  width: 0;
+  height: 100vh;
+  animation: all 1s ease-out;
+}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

@@ -27,11 +27,11 @@
       }
      })
     .state('home.category', {
-      url: '/category/:id',
+      url: '/category/:id?page',
       resolve: {
         /** @ngInject */
         videos: function ($stateParams, categoriesFactory) {
-          return categoriesFactory.getVideosById($stateParams.id).then(function (result) {
+          return categoriesFactory.getVideosById($stateParams.id, $stateParams.page).then(function (result) {
             var videos;
             if(result.data.data){
               videos = result.data;
@@ -50,7 +50,8 @@
         }
       },
       params: {
-        id: 'animation'
+        id: 'animation',
+        page: '1'
       }
      })
       .state('home.detail', {
