@@ -35,6 +35,39 @@
         console.log(error);
       });
     }
-  }
 
+    //vm.openClose = openClose;
+    vm.lowScreen = true;
+    vm.open = true;
+    /*function openClose(){
+      if(vm.open){
+        vm.open = false;
+      }else{
+        vm.open = true;
+      }
+      console.log(vm.open);
+    }
+*/
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if(width <= 720){
+      vm.open = false;
+      vm.lowScreen = true;
+      console.log(vm.lowScreen);
+    }else{
+      vm.open = true;
+      vm.lowScreen = false;
+      console.log(vm.lowScreen);
+    }
+
+    vm.openClose = openClose;
+    function openClose(x) {
+      //x.classList.toggle("change");
+      if(vm.open){
+        vm.open = false;
+      }else{
+        vm.open = true;
+      }
+    }
+
+  }
 })();

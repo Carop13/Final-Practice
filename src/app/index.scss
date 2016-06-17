@@ -39,6 +39,24 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 @font-face {
+  font-family: 'Avenir Demi Cn';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Demi Cn'),
+  url('../assets/fonts/avenirnextltpro/AvenirNextLTPro-DemiCn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Medium Cn';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Medium Cn'),
+  url('../assets/fonts/avenirnextltpro/AvenirNextLTPro-MediumCn.woff') format('woff');
+}
+
+
+
+@font-face {
   font-family: 'Avenir Demi';
   font-style: normal;
   font-weight: normal;
@@ -85,7 +103,7 @@ nav{
       width: 36px;
     }
     h1{
-      font-family: 'Avenir Cn';
+      font-family: 'Avenir Regular';
       font-weight: 100;
       letter-spacing: 1px;
       padding-left: 5px;
@@ -108,6 +126,21 @@ nav{
     min-height: 100%;
     /* equal to footer height */
     margin-bottom: -30px;
+    .row{
+      padding: 0 15px;
+      .icon{
+        display: none;
+        .menu-icon{
+          width: 35px;
+          height: 5px;
+          background-color: #777;
+          margin: 6px 0;
+        }
+      }
+      .col-md-3{
+        width: 300px;
+      }
+    }
   }
   .page-wrap:after {
     content: "";
@@ -256,15 +289,19 @@ figcaption{
 
 .detail-view .video-container .video-reproduce iframe {
   width: 100%;
-  height: 700px;
+  height: 600px;
 }
 .video-name{
-  font-family: 'Avenir Bold';
-  font-weight: 800;
+  font-family: 'Avenir Demi';
+  font-weight: bolder;
   color: #6b5c9e;
-
+  width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .marginal{
+  width: calc(100% - 75px);
   margin-left: 75px;
   min-height: 75px;
   position: relative;
@@ -278,8 +315,10 @@ figcaption{
     top: 0;
     margin: 0;
     border-radius: 50%;
-
   }
+ /* div{
+    width: calc(100% - 75px);
+  }*/
 }
 .description{
   margin: 0;
@@ -316,6 +355,30 @@ figcaption{
       width: 100%;
       height: calc(100vh - (80px + 30px));
     }
+    .page-wrap{
+      .row{
+        display: inline;
+      }
+      .det{
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .icon{
+        display: inherit !important;
+        .menu-icon{
+          width: 35px;
+          height: 5px;
+          background-color: #777;
+          margin: 6px 0;
+        }
+      }
+
+    }
+    header .col-md-3 .input-group input {
+      width: 200px;
+    }
   }
   .detail-view{
     width: 100%;
@@ -341,7 +404,37 @@ figcaption{
       }
     }
   }
+  .video-name{
+    width: 200px;
+  }
+
 }
+.two{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes closed {
+  from { top: 80px; left: 0; width: 300px}
+  to { top: 80px; left: 0; width: 0}
+}
+
+@keyframes opened {
+  from { top: 80px; left: 0; width: 0}
+  to { top: 80px; left: 0; width: 300px}
+}
+
+.open{
+  height: 100vh;
+  animation: opened 1s ease-in-out;
+}
+
+.close{
+  height: 100vh;
+  animation: closed 1s ease-in-out;
+}
+
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

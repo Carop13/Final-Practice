@@ -4,8 +4,15 @@
 
 <div class="change-content pull-left">
   <div class="page-wrap">
-    <header class="row">
-      <div class="col-md-3 pull-right">
+    <header class="row det">
+      <div class="ten pull-left" ng-class="{'close': vm.lowScreen}">
+        <div class="icon" ng-click="vm.openClose(this)">
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3 pull-right">
         <div class="input-group display-inline">
           <input type="text" class="form-control no-border" placeholder="Search video">
           <i class="fa fa-search fa-2x" aria-hidden="true"></i>
