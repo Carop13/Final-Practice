@@ -55,11 +55,11 @@
       }
      })
       .state('home.detail', {
-        url: '/detail/{uri}',
+        url: '/detail/:id',
         resolve: {
           /** @ngInject */
           video: function ($stateParams, categoriesFactory) {
-            return categoriesFactory.getVideo($stateParams.uri).then(function (result) {
+            return categoriesFactory.getVideo($stateParams.id).then(function (result) {
               var video;
               if(result.data){
                 video = result.data;

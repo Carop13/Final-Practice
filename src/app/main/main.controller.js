@@ -15,13 +15,12 @@
     vm.maxSize = 3;
     vm.itemsPerPage = 12;
 
-    console.log(videos);
     vm.videoDetail = videoDetail;
     vm.changePage = changePage;
 
     function videoDetail(uri){
-      uri =  uri.substring(1);
-      $state.go('home.detail', {uri: uri});
+      var videoId =  uri.split('/').pop();
+      $state.go('home.detail', {id: videoId});
     }
 
 

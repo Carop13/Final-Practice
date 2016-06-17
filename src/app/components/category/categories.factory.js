@@ -38,21 +38,9 @@
       });
     }
 
-/*    function resolveSlashUri(videos){
-      if(videos){
-        angular.forEach(videos, function(video){
-          console.log(video);
-          video.uri =  video.uri.split('/').pop();
-        });
-          return videos;
-      }else {
-        return videos;
-      }
-    }*/
-
 
     function getVideo(videoUri){
-      return $http.get(vimeoConfig.API_HOST + videoUri).then(function(response){
+      return $http.get(vimeoConfig.API_HOST + '/videos/' + videoUri).then(function(response){
         return response;
       }, function(error){
         return error;
@@ -64,7 +52,6 @@
       'getCategory': getCategory,
       'resolveSlash': resolveSlash,
       'getVideosById': getVideosById,
-      /*'resolveSlashUri': resolveSlashUri,*/
       'getVideo': getVideo
     };
   }
