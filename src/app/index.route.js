@@ -83,7 +83,34 @@
         params: {
           uri: undefined
         }
-      });
+      })
+      .state('home.search', {
+      url: '/search/:query?page',
+      resolve: {
+        /** @ngInject */
+        videos: function ($stateParams, categoriesFactory) {
+          return categoriesFactory.getVideosSearch($stateParams.page, $stateParams.query).then(function (result) {
+            var videos;
+            if(result.data.data){
+              videos = result.data;
+            }else{
+              videos = [];
+            }
+            return videos;
+          });
+        }
+      },
+      views: {
+        'content@': {
+          templateUrl: 'app/main/main.html',
+          controller: 'MainController',
+          controllerAs: 'vm'
+        }
+      },
+      params: {
+        page: '1'
+      }
+    });
     $urlRouterProvider.otherwise('/category/');
   }
 

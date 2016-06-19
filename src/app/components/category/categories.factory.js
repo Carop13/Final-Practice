@@ -31,6 +31,7 @@
     function getVideosById(id, page){
       var params = '?page=' + page;
       params += '&per_page=' + 12;
+
       return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES + '/' + id + '/videos' + params).then(function (response) {
         return response;
       }, function(error){
@@ -47,12 +48,26 @@
       });
     }
 
+    function getVideosSearch(page, query) {
+      var params = '?page=' + page;
+      params += '&per_page=' + 12;
+      params += '&query=' + query;
+
+      //console.log(vimeoConfig.API_HOST + 'videos' + params);
+      return $http.get(vimeoConfig.API_HOST + 'videos' + params).then(function(response){
+        return response;
+      }, function(error){
+        return error;
+      });
+    }
+
 
     return {
       'getCategory': getCategory,
       'resolveSlash': resolveSlash,
       'getVideosById': getVideosById,
-      'getVideo': getVideo
+      'getVideo': getVideo,
+      'getVideosSearch': getVideosSearch
     };
   }
 })();
