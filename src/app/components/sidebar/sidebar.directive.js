@@ -13,11 +13,11 @@ angular.module('finalPractice')
       },
       replace: true,
       templateUrl: 'app/components/sidebar/sidebar.html',
-      link: function($scope, element){
+      link: function(){
 
 
         var openMenu = $document[0].querySelector('#menu');
-        var aside = element[0].querySelector('.aside');
+        var aside = $document[0].querySelector('#aside');
         var closeX = $document[0].querySelector('#closeX');
 
 

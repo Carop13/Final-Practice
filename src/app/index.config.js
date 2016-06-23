@@ -6,20 +6,25 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $translateProvider) {
+  function config($logProvider, $translateProvider, LOCALES, tmhDynamicLocaleProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
-    $translateProvider.useStaticFilesLoader({
-      prefix: '../i18n/',
-      suffix: '.json'
-    });
+    //Angular translate configuration
+    $translateProvider.useMissingTranslationHandlerLog();
+    $translateProvider
+      .useStaticFilesLoader({
+        prefix: 'app/i18n/',
+        suffix: '.json'
+      })
+      .registerAvailableLanguageKeys(['en', 'es'], LOCALES.localesMap)
+      .determinePreferredLanguage()
+      //or use $translateProvider.preferredLanguage(LOCALES.preferredLocale)
+      .fallbackLanguage(LOCALES.preferredLocale);
 
     $translateProvider.useLocalStorage();
-
-    //$translateProvider.translations('en');
-    $translateProvider.preferredLanguage('en');
-
+    $translateProvider.useSanitizeValueStrategy('escape');
+    tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
 
 
   }

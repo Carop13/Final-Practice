@@ -13,7 +13,7 @@
     vm.videos = videos.data;
     vm.currentPage = $stateParams.page;
     vm.maxSize = vimeoConfig.MAXSIZE;
-    vm.itemsPerPage = vimeoConfig.ITEMSPERPAGE;
+    vm.itemsPerPage = vimeoConfig.ITEMS_PER_PAGE;
 
     vm.videoDetail = function (uri){
       var videoId =  uri.split('/').pop();

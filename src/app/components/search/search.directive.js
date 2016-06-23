@@ -8,26 +8,28 @@ angular.module('finalPractice')
   .directive('search', search);
 
 /** @ngInject */
-function search($document) {
+function search($rootScope) {
   return {
     restrict: 'E',
+    scope: {},
+    replace: true,
     templateUrl: 'app/components/search/search.html',
-    link: function(scope, element, $stateProvider){
+    link: function(scope){
+      scope.query = '';
 
-      scope.searchBox = searchBox;
-      scope.enterPress = enterPress;
-
-      function searchBox(querySearch){
-        console.log(querySearch);
-        //window.location.href = 'home.search', querySearch;
-        $stateProvider.state("home.search", {page: 1, query: querySearch});
-      }
-
-      function enterPress(keyEvent, query) {
-        if(keyEvent.which === 13){
-          scope.searchBox(query);
+      scope.searchBoxEvent = function (query) {
+        if(query != ''){
+          $rootScope.$broadcast('search-box:query', query);
         }
-      }
+      };
+
+      scope.enter = function (keyEvent) {
+        if(keyEvent.which === 13){
+          if(scope.query != ''){
+            scope.searchBoxEvent(scope.query);
+          }
+        }
+      };
 
     }
   };

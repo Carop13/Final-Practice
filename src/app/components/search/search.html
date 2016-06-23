@@ -1,4 +1,5 @@
 <div id="searchBox" class="input-group display-inline">
-  <input type="text" class="form-control no-border" placeholder="Search video" ng-model="query">
-  <i class="fa fa-search fa-2x" aria-hidden="true"  ui-sref="home.search({page: 1, query: query})"></i>
+  <input type="text" class="form-control no-border" placeholder="Search video" ng-model="query"
+         ng-keypress="enter($event)" >
+  <i class="fa fa-search fa-2x" aria-hidden="true" ng-click="searchBoxEvent(query)"></i>
 </div>

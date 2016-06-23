@@ -5,12 +5,12 @@
 
   angular
     .module('finalPractice')
-    .filter('thousandSuffix', function () {
+    .filter('thousandSuffix', function ($window) {
       return function (input) {
         var exp,
           suffixes = ['k', 'M', 'G', 'T', 'P', 'E'];
 
-        if(window.isNaN(input)) {
+        if($window.isNaN(input)) {
           return null;
         }
 
