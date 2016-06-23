@@ -42,6 +42,11 @@
           });
         }
       },
+      onEnter: function($state, $stateParams, categories){
+        if (!$stateParams.id && categories.length > 0) {
+          $state.go('home.category', {'id': categories[0].id, 'page': 1 });
+        }
+      },
       views: {
         'content@': {
           templateUrl: 'app/main/main.html',
