@@ -5,7 +5,7 @@ $screen-md-min: 992px !default;
 
 nav{
   position: fixed;
-  width: -$sidenav-width;
+  width: $sidenav-width;
   height: 100%;
   background: #6b5c9e;
   background: -moz-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
@@ -17,7 +17,7 @@ nav{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b5c9e', endColorstr='#2E274D', GradientType=0 );
   color: #fff;
   font-family: 'Avenir Regular';
-
+  opacity: 1;
   header{
     padding: 20px 20px 20px 20px;
     display: inline-flex;
@@ -50,11 +50,7 @@ nav{
 
 @media (max-width: 720px){
   nav{
-    //display: none;
-    position: absolute;
-    top: 0;
     width: 300px;
-    height: calc(100vh - 80px);
     background: #6b5c9e;
     background: -webkit-gradient(left top, left bottom, color-stop(0%, #6b5c9e), color-stop(100%, #2E274D));
     background: -webkit-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
@@ -70,13 +66,11 @@ nav{
 
   .open{
     width: 300px;
-    height: 100vh;
     animation: opened 0.1s ease-in-out;
   }
 
-  .close{
+  .close-nav{
     width: 300px;
-    height: 100vh;
     position: absolute;
     left: -300px;
     animation: all 0.01s ease-out;
@@ -95,35 +89,13 @@ nav{
   to { top: 0; left: 0;}
 }
 
-/*@keyframes openBig {
-  from { top: 0; left: -300px}
-  to { top: 0; left: 0px;}
-}*/
-
 .open{
-  //display: inherit;
   width: 300px;
-  height: 100vh;
   animation: opened 0.1s ease-in-out;
 }
 
-.close{
+.close-nav{
   width: 300px;
-  height: 100vh;
   animation: closeC 0.1s ease-out;
 }
 
-/*
-
-@media (min-width: 720px){
-  nav{
-    opacity: 1 !important;
-    color: #fff !important;
-    position: relative;
-    width: 300px;
-    height: 100vh;
-    animation: openBig 0.1s ease-in-out;
-    //animation-direction: reverse;
-  }
-}
-*/

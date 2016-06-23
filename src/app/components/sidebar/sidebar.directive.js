@@ -8,8 +8,13 @@ angular.module('finalPractice')
   function sideBar($document) {
     return {
       restrict: 'E',
+      scope: {
+        items: '='
+      },
+      replace: true,
       templateUrl: 'app/components/sidebar/sidebar.html',
       link: function($scope, element){
+
 
         var openMenu = $document[0].querySelector('#menu');
         var aside = element[0].querySelector('.aside');
@@ -17,17 +22,11 @@ angular.module('finalPractice')
 
 
         angular.element(openMenu).on('click', function(){
-          //var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-          //console.log(width);
-         /* if(width >= 720 && angular.element(aside).hasClass('close')){
-            angular.element(aside).removeClass('close');
-            angular.element(aside).addClass('open');
-          }*/
           if(angular.element(aside).hasClass('open')){
             angular.element(aside).removeClass('open');
-            angular.element(aside).addClass('close');
+            angular.element(aside).addClass('close-nav');
           }else{
-            angular.element(aside).removeClass('close');
+            angular.element(aside).removeClass('close-nav');
             angular.element(aside).addClass('open');
           }
         });
@@ -35,7 +34,7 @@ angular.module('finalPractice')
         angular.element(closeX).on('click', function(){
           if(angular.element(aside).hasClass('open')){
             angular.element(aside).removeClass('open');
-            angular.element(aside).addClass('close');
+            angular.element(aside).addClass('close-nav');
           }
         });
 

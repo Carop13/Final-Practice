@@ -63,54 +63,31 @@ html{
   font-size: 62.5%;
   line-height: 1.3;
 }
-html, body {  height: 100%; }
+* {
+  margin: 0;
+}
+html, body {
+  min-height: 100%;
+}
 
-.change-content {
-  width: 100% ;
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -$footer-height;
   padding-left: $sidenav-width;
-  * {
-    margin: 0;
-  }
-  html, body {
-    min-height: 100%;
-  }
-  .page-wrap {
-    min-height: 100%;
-    /* equal to footer height */
-    margin-bottom: -30px;
-    .row{
-      padding: 0 15px;
-      .icon{
-        display: none;
-        .menu-icon{
-          width: 35px;
-          height: 5px;
-          background-color: #777;
-          margin: 6px 0;
-        }
-      }
-      .col-md-3{
-        width: 300px;
+
+  .row{
+    padding: 0 15px;
+    .icon{
+      display: none;
+      .menu-icon{
+        width: 35px;
+        height: 5px;
+        background-color: #777;
+        margin: 6px 0;
       }
     }
-  }
-  .page-wrap:after {
-    content: "";
-    display: block;
-  }
-  .site-footer, .page-wrap:after {
-    height: 30px;
-  }
-  .site-footer {
-    border-top: 1px solid #aaa;
-    background: #eee;
-    p{
-      height: 100%;
-      display: inline-flex;
-      align-items: center;
-      padding-right: 10px;
-      font-size: 10px;
-      color: #999;
+    .col-md-3{
+      width: 250px;
     }
   }
   header{
@@ -129,9 +106,14 @@ html, body {  height: 100%; }
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         border: 1px solid #eee;
+
         input{
           font-size: 10px;
-          width: 300px;
+          width: 200px;
+          &:focus{
+            box-shadow: inset 0 0 0;
+            border: 0;
+          }
         }
         i{
           padding-right: 10px;
@@ -139,14 +121,32 @@ html, body {  height: 100%; }
       }
     }
   }
-  section{
-    height: calc(100vh - (80px + 30px));
-  }
-  div.row.col-md-12{
-    padding: 1em;
-    text-align: center;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: $footer-height;
+}
+.site-footer {
+  border-top: 1px solid #aaa;
+  background: #eee;
+  p{
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding-right: 10px;
+    font-size: 10px;
+    color: #999;
   }
 }
+
+div.row.col-md-12{
+  padding: 1em;
+  text-align: center;
+}
+
 
 .from-detail{
   color: #777;
@@ -299,28 +299,9 @@ figcaption{
   }
 }
 @media (max-width: 720px){
- /* nav{
-    //display: none;
-    position: absolute;
-    top: 80px;
-    width: 300px;
-    height: calc(100vh - 80px);
-    background: #6b5c9e;
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, #6b5c9e), color-stop(100%, #2E274D));
-    background: -webkit-linear-gradient(top, #6b5c9e 0%, #2E274D 100%);
-    background: linear-gradient(to bottom, #6b5c9e 0%, #2E274D 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b5c9e', endColorstr='#2E274D', GradientType=0 );
-    color: #fff;
-    font-family: 'Avenir Regular';
-    z-index: 3;
-  }*/
-  .change-content{
-    width: 100% !important;
-    section{
-      width: 100%;
-      height: calc(100vh - (80px + 30px));
-    }
     .page-wrap{
+      width: 100% !important;
+      padding-left: 0;
       .row{
         display: inline;
       }
@@ -339,12 +320,12 @@ figcaption{
           margin: 6px 0;
         }
       }
+      header .col-md-3 .input-group input {
+        width: 200px;
+      }
 
     }
-    header .col-md-3 .input-group input {
-      width: 200px;
-    }
-  }
+
   .detail-view{
     width: 100%;
     .video-container .video-reproduce iframe {
@@ -373,60 +354,9 @@ figcaption{
     width: 200px;
   }
 
- /* .open{
-    width: 300px;
-    height: 100vh;
-    animation: opened 0.1s ease-in-out;
-  }
-
-  .close{
-    display: none;
-    width: 0;
-    height: 100vh;
-    animation: closeC 0.1s ease-out;
-  }*/
-
-
 }
 .two{
   height: 100%;
   display: flex;
   align-items: center;
 }
-
-/*@keyframes closeC {
-  from { top: 80px; left: 300px; width: 300px}
-  to { top: 0; left: 0; width: 0}
-}
-
-@keyframes opened {
-  from { top: 80px; left: 0; width: 0}
-  to { top: 80px; width: 300px}
-}
-
-@keyframes openBig {
-  from { top: 0; left: 0; width: 300px}
-  to { top: 0; width: 0}
-}
-
-.open{
-  //display: inherit;
-  width: 300px;
-  height: 100vh;
-  animation: opened 0.1s ease-in-out;
-}
-.width-oneh{
-  width: 100%;
-}
-
-@media (min-width: 720px){
-  nav{
-    opacity: 1 !important;
-    color: #fff !important;
-    position: relative;
-    width: 300px;
-    height: 100vh;
-    animation: openBig 0.1s ease-in-out;
-    //animation-direction: reverse;
-  }
-}*/

@@ -6,14 +6,14 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(categories, videos, $state, $stateParams) {
+  function MainController(categories, videos, $state, $stateParams, vimeoConfig) {
     var vm = this;
     vm.categories = categories;
     vm.total = videos.total;
     vm.videos = videos.data;
     vm.currentPage = $stateParams.page;
-    vm.maxSize = 3;
-    vm.itemsPerPage = 12;
+    vm.maxSize = vimeoConfig.MAXSIZE;
+    vm.itemsPerPage = vimeoConfig.ITEMSPERPAGE;
 
     vm.videoDetail = function (uri){
       var videoId =  uri.split('/').pop();

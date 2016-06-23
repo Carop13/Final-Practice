@@ -1,44 +1,45 @@
-<side-bar></side-bar>
+<aside>
+  <side-bar items="vm.categories"></side-bar>
+</aside>
 
 
-<div class="change-content pull-left">
-  <div class="page-wrap">
-    <header class="row det">
-      <div class="ten pull-left" >
-        <div id="menu" class="icon">
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
-          <div class="menu-icon"></div>
+<section class="page-wrap">
+  <header class="row det">
+    <div class="ten pull-left" >
+      <div id="menu" class="icon">
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3 pull-right">
+      <search class="width-oneh"></search>
+    </div>
+  </header>
+
+  <section class="container-fluid">
+    <div class="display-wrap">
+      <div class="videos-display" ng-repeat="video in vm.videos track by $index" >
+        <div class="video-img" ng-click="vm.videoDetail(video.uri)">
+          <figure ng-if="video.pictures && video.pictures.sizes && video.pictures.sizes.length >= 3">
+            <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img" data-actual-width = "{{video.pictures.sizes[2].width}}"  data-actual-height="{{video.pictures.sizes[2].height}}" />
+            <figcaption>{{video.name}}</figcaption>
+          </figure>
+          <figure ng-if="!video.pictures || !video.pictures.sizes || video.pictures.sizes.length < 3">
+            <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
+            <figcaption>{{video.name}}</figcaption>
+          </figure>
         </div>
       </div>
-      <div class="col-sm-12 col-md-3 pull-right">
-        <search class="width-oneh"></search>
+
+      <div class="row col-md-12">
+        <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false" items-per-page="vm.itemsPerPage"  ng-change="vm.changePage()"></uib-pagination>
       </div>
-    </header>
+    </div>
+  </section>
+</section>
 
-    <section class="container-fluid">
-      <div class="display-wrap">
-        <div class="videos-display" ng-repeat="video in vm.videos track by $index" >
-          <div class="video-img" ng-click="vm.videoDetail(video.uri)">
-            <figure ng-if="video.pictures && video.pictures.sizes && video.pictures.sizes.length >= 3">
-              <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img" data-actual-width = "{{video.pictures.sizes[2].width}}"  data-actual-height="{{video.pictures.sizes[2].height}}" />
-              <figcaption>{{video.name}}</figcaption>
-            </figure>
-            <figure ng-if="!video.pictures || !video.pictures.sizes || video.pictures.sizes.length < 3">
-              <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
-              <figcaption>{{video.name}}</figcaption>
-            </figure>
-          </div>
-        </div>
+<footer class="site-footer">
+  <p class="pull-right">Powered by Talos Digital</p>
+</footer>
 
-        <div class="row col-md-12">
-          <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false" items-per-page="vm.itemsPerPage"  ng-change="vm.changePage()"></uib-pagination>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <footer class="site-footer">
-    <p class="pull-right">Powered by Talos Digital</p>
-  </footer>
-</div>

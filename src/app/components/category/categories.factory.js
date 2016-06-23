@@ -17,7 +17,7 @@
       });
     }
 
-    function resolveSlash(categories){
+    function resolveCategoriId(categories){
       if(categories){
         return categories.map(function(category){
           category.id =  category.uri.split('/').pop();
@@ -64,7 +64,7 @@
 
     return {
       'getCategory': getCategory,
-      'resolveSlash': resolveSlash,
+      'resolveCategoriId': resolveCategoriId,
       'getVideosById': getVideosById,
       'getVideo': getVideo,
       'getVideosSearch': getVideosSearch

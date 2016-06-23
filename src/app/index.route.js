@@ -17,7 +17,7 @@
           return categoriesFactory.getCategory().then(function (result) {
             var categories;
             if(result.data && result.data.length > 0){
-              categories = categoriesFactory.resolveSlash(result.data);
+              categories = categoriesFactory.resolveCategoriId(result.data);
             }else{
               categories = [];
             }
