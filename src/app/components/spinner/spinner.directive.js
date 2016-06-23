@@ -6,6 +6,7 @@ function spinner($rootScope, $document) {
   return {
     restrict: 'E',
     scope: {},
+    replace: true,
     templateUrl: 'app/components/spinner/spinner.html',
     link: function(scope){
       scope.query = '';
@@ -19,14 +20,14 @@ function spinner($rootScope, $document) {
       var loader = $document[0].querySelector('#loader');
 
       scope.$on('start', function(){
-        if(!angular.element(loader).hasClass('loader')){
-          angular.element(loader).addClass('loader');
+        if(angular.element(loader).hasClass('loader')){
+          angular.element(loader).removeClass('loader');
         }
       });
 
       scope.$on('end', function(){
-        if(angular.element(loader).hasClass('loader')){
-          angular.element(loader).removeClass('loader');
+        if(!angular.element(loader).hasClass('loader')){
+          angular.element(loader).addClass('loader');
         }
       });
 

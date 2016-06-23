@@ -6,17 +6,17 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $http, vimeoConfig, $rootScope, $state) {
-    $http.defaults.headers.common.Authorization = 'Bearer ' + vimeoConfig.ACCESS_TOKEN;
-    $log.debug('runBlock end');
+  function runBlock($http, vimeoConfig, $rootScope, $state) {
 
-    var stateChangeStart = $rootScope.$on('stateChangeStart', function (event, toState) {
+    $http.defaults.headers.common.Authorization = 'Bearer ' + vimeoConfig.ACCESS_TOKEN;
+
+    var stateChangeStart = $rootScope.$on('$stateChangeStart', function (event, toState) {
      if(toState.resolve){
        $rootScope.$broadcast('start', '');
      }
     });
 
-    var stateChangeSuccess = $rootScope.$on('stateChangeSuccess', function (event, toState) {
+    var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', function (event, toState) {
       if(toState.resolve){
         $rootScope.$broadcast('end', '');
       }
