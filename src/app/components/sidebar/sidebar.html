@@ -4,10 +4,9 @@
     <img src="assets/images/favicon-sample.svg">
     <h1 translate="global.videoTest">VimeoTest</h1>
     <span id="closeX"> x </span>
-
   </header>
   <ul>
-    <li ng-repeat="category in items | limitTo: 8">
+    <li ng-repeat="category in items | limitTo: 8 track by $index" ui-sref-active="active">
       <a class="links" ui-sref="home.category({id: category.id, page: vm.currentPage})">
         <div>
           <div>

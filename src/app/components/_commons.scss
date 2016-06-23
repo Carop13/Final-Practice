@@ -59,15 +59,18 @@
 }
 
 * { margin: 0; font-family: 'AvenirNextLTPro', sans-serif; }
+
+html, body {
+  height: 100%;
+}
+
 html{
   font-size: 62.5%;
   line-height: 1.3;
 }
-* {
-  margin: 0;
-}
-html, body {
-  height: 100%;
+
+body {
+  @include font-size(1.4);
 }
 
 .page-wrap {
@@ -82,6 +85,7 @@ html, body {
   height: $footer-height;
 }
 .site-footer {
+  @include font-size(1.2);
   border-top: 1px solid #aaa;
   background: #eee;
   p{
@@ -89,8 +93,8 @@ html, body {
     display: inline-flex;
     align-items: center;
     padding-right: 10px;
-    font-size: 10px;
     color: #999;
+    margin-bottom: 0 !important;
   }
 }
 
@@ -127,51 +131,19 @@ div.row.col-md-12{
   text-align: center;
 }
 
-
 .from-detail{
   color: #777;
-  font-size: 12px;
+  @include font-size(1.2);
   strong{
     color: #444;
   }
 }
 
-
 .no-border{
   border: 0 !important;
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
 }
-.links{
-  color: #fff;
-  opacity: 0.9;
-}
-.links:hover, .links:focus, .links:active{
-  font-weight: 100;
-  color: #fff;
-  opacity: 1;
-  text-decoration: none;
-  font-family: 'Avenir Demi';
-}
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-family: 'Avenir Regular';
-  font-weight: 100;
-  letter-spacing: 1px;
-}
-li{
-  display: inline-flex;
-  width: 100%;
-  padding-left: 20px;
-}
-li:before {
-  content: "";
-  color: #eee;
-  padding-right: 10px;
-  border-left: thick solid #eee;
-}
 .video-img{
   width: 230px;
   padding: 0.5em;
@@ -197,7 +169,6 @@ figcaption{
 }
 .detail-view{
   max-width: calc(100vw - 300px);
-  /*padding-left: 0 !important;*/
   .video-container{
     .video-reproduce{
       padding-bottom: 0;
@@ -244,13 +215,10 @@ figcaption{
     margin: 0;
     border-radius: 50%;
   }
-  /* div{
-     width: calc(100% - 75px);
-   }*/
 }
 .description{
   margin: 0;
-  padding: 0 0 0 15px;
+  padding: 15px 0 0 15px;
 }
 .no-padding-no-margin{
   padding: 0 !important;
@@ -263,6 +231,9 @@ figcaption{
   padding: 0 0.5em 0.5em 0;
   span{
     margin-left: 10px;
+    i{
+      color: #999;
+    }
   }
 }
 
@@ -329,11 +300,6 @@ figcaption{
     width: 200px;
   }
 
-}
-.two{
-  height: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .no-margin{
