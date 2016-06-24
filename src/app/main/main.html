@@ -22,17 +22,14 @@
       <div class="videos-display" ng-repeat="video in vm.videos track by $index" >
         <div class="video-img" ng-click="vm.videoDetail(video.uri)">
           <figure ng-if="video.pictures && video.pictures.sizes && video.pictures.sizes.length >= 3">
-            <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img" data-actual-width = "{{video.pictures.sizes[2].width}}"  data-actual-height="{{video.pictures.sizes[2].height}}" />
-            <figcaption>{{video.name}}</figcaption>
-          </figure>
-          <figure ng-if="!video.pictures || !video.pictures.sizes || video.pictures.sizes.length < 3">
-            <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
+            <img ng-src="{{video.pictures.sizes[2].link}}" class="video-img"
+                 data-actual-width = "{{video.pictures.sizes[2].width}}"
+                 data-actual-height="{{video.pictures.sizes[2].height}}" />
             <figcaption>{{video.name}}</figcaption>
           </figure>
         </div>
       </div>
-
-      <div class="row col-md-12">
+      <div class="row col-md-12 paginator">
         <uib-pagination total-items="vm.total" ng-model="vm.currentPage" max-size="vm.maxSize"
                         boundary-link-numbers="true" rotate="false" items-per-page="vm.itemsPerPage"
                         ng-change="vm.changePage()"></uib-pagination>

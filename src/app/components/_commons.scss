@@ -77,13 +77,16 @@ body {
   min-height: 100%;
   margin-bottom: -$footer-height;
 }
+
 .page-wrap:after {
   content: "";
   display: block;
 }
+
 .site-footer, .page-wrap:after {
   height: $footer-height;
 }
+
 .site-footer {
   @include font-size(1.2);
   border-top: 1px solid #aaa;
@@ -126,6 +129,7 @@ body {
     }
   }
 }
+
 div.row.col-md-12{
   padding: 1em;
   text-align: center;
@@ -144,22 +148,30 @@ div.row.col-md-12{
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
 }
 
-.video-img{
-  width: 230px;
-  padding: 0.5em;
-}
+
 .display-wrap{
   width: 100%;
   display: inline-flex;
   justify-content: center;
   flex-wrap: wrap;
+  .videos-display{
+    padding: 0.5em;
+  }
+  .video-img{
+    width: 230px;
+  }
+  figcaption{
+    padding-left: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
-figcaption{
-  padding-left: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+.paginator{
+  padding: 0 !important;
 }
+
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
   z-index: 3;
   color: #fff;
@@ -167,29 +179,31 @@ figcaption{
   border-color: #6b5c9e;
   cursor: default;
 }
+
 .detail-view{
   max-width: calc(100vw - 300px);
   .video-container{
     .video-reproduce{
       padding-bottom: 0;
       width: 100%;
+      iframe {
+        width: 100%;
+        height: 600px;
+      }
     }
-
   }
 }
+
 .pagination > li > a:hover, .pagination > li > span:hover{
   background-color: #6b5c9e;
   border-color: #6b5c9e;
   color: #fff;
 }
+
 .pagination > li > a, .pagination > li > span{
   color: #6b5c9e;
 }
 
-.detail-view .video-container .video-reproduce iframe {
-  width: 100%;
-  height: 600px;
-}
 .video-name{
   font-family: 'Avenir Demi';
   font-weight: bolder;
@@ -216,14 +230,17 @@ figcaption{
     border-radius: 50%;
   }
 }
+
 .description{
   margin: 0;
   padding: 15px 0 0 15px;
 }
+
 .no-padding-no-margin{
   padding: 0 !important;
   margin: 0 !important;
 }
+
 .metadata{
   width: 100%;
   display: inline-flex;
@@ -237,6 +254,10 @@ figcaption{
   }
 }
 
+.no-margin{
+  margin: 0 !important;
+}
+
 @media (max-width: 1290px) {
   .detail-view .video-container .video-reproduce iframe {
     width: calc(100vw - 300px);
@@ -244,6 +265,7 @@ figcaption{
     padding-left: 0 !important;
   }
 }
+
 @media (max-width: 720px){
     .content{
       width: 100% !important;
@@ -269,9 +291,7 @@ figcaption{
       header .col-md-3 .input-group input {
         width: 200px;
       }
-
     }
-
   .detail-view{
     width: 100%;
     .video-container .video-reproduce iframe {
@@ -299,9 +319,5 @@ figcaption{
   .video-name{
     width: 200px;
   }
-
 }
 
-.no-margin{
-  margin: 0 !important;
-}
