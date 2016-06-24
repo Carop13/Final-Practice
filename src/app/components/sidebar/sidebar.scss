@@ -17,6 +17,7 @@ nav{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b5c9e', endColorstr='#2E274D', GradientType=0 );
   color: #fff;
   font-family: 'Avenir Regular';
+  z-index: 100 !important;
   header{
     padding: 20px 20px 20px 20px;
     display: inline-flex;
