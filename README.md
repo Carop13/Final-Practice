@@ -4,7 +4,6 @@ The purpose of these practices is to help **Front End** developers demostrate **
 
 ### Install
 
-To run the examples follow the commands below:
 ```sh
 $ brew install nvm
 $ npm install -g bower
@@ -13,6 +12,7 @@ $ npm install gulp-cli -g
 
 ### Start App
 
+To run the examples follow the commands below:
 ```
 $ npm install
 $ bower install
