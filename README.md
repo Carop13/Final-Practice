@@ -2,7 +2,7 @@
 
 The purpose of these practices is to help **Front End** developers demostrate **AngularJS** and **Sass** concepts.
 
-### Install
+### Installation Requires
 
 ```sh
 $ brew install nvm
